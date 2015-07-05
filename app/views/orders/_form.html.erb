@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%= f.select :status, ["created","bad","delivered"], {class: "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :customer_id %><br>
-    <%= f.number_field :customer_id %>
-  </div>
-  <div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.number_field :product_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% unless params[:action] == "edit" %>
+    <div class="field">
+      <%= f.label :customer_id %><br>
+      <%= f.number_field :customer_id %>
+    </div>
+    <div class="field">
+      <%= f.label :product_id %><br>
+      <%= f.number_field :product_id %>
+    </div>
+  <% end %>
+  <button type="submit" class="btn btn-default">Submit</button>
 <% end %>

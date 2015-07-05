@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -57,9 +57,8 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
-    @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Forbidden' }
       format.json { head :no_content }
     end
   end
